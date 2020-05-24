@@ -29,8 +29,10 @@ const newsFeed = (props) => {
     const feed = Object.assign({}, feeds[index]);
     feed.points = feed.points + 1;
     feeds[index] = feed;
-    setFeeds({ feeds: feeds });
-    console.log("Not clear what to to so just added the value from api!!!");
+    setFeeds([...feeds]);
+    console.log(
+      "Not clear what to to so just added some logic from my understanding!!!"
+    );
   };
 
   const hideHandler = (obj) => {

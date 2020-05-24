@@ -7,7 +7,7 @@ const feeds = (props) => {
       <li>
         <label>{props.NewsFeed.num_comments}</label>
         <label>{props.NewsFeed.points}</label>
-        <label className="cursor-pointer" onClick={props.upVote}>
+        <label className="cursor-pointer" onClick={() => {props.upVote(props.NewsFeed.objectID)}}>
           <span className="upvote"></span>
         </label>
         <label className="FeedComments">

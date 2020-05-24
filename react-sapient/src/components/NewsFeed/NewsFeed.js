@@ -1,36 +1,41 @@
 import React, { useState, useEffect } from "react";
-
 import Feeds from "../../components/NewsFeed/Feeds/Feeds";
 import "../NewsFeed/Feeds/Feeds.css";
+import getFeeds from "../../getFeeds";
 const newsFeed = (props) => {
   //created a state to manage vote count
-  const [vote, setVote] = useState({count: 0});
+  const [vote, setVote] = useState({ count: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
   const [feeds, setFeeds] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://hn.algolia.com/api/v1/search?tags=front_page")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setFeeds(result.hits);
-        },
-        (error) => {
-          setError(error);
-        }
-      );
+    getFeeds().then(
+      (result) => {
+        setIsLoaded(true);
+        setFeeds(result.hits);
+      },
+      (error) => {
+        setError(error);
+      }
+    );
   }, []);
 
-  const upvoteHandler = (id, e) => {
-    
-    console.log('Not clear what to to so just added the value from api!!!')
+  const upvoteHandler = (id) => {
+    const index = feeds.findIndex((feed) => {
+      console.log(feed);
+      return feed.objectID === id;
+    });
+    const feed = Object.assign({}, feeds[index]);
+    feed.points = feed.points + 1;
+    feeds[index] = feed;
+    setFeeds({ feeds: feeds });
+    console.log("Not clear what to to so just added the value from api!!!");
   };
 
   const hideHandler = (obj) => {
     let objectID = obj.objectID;
-    setFeeds(feeds.filter(feed => feed.objectID !== objectID));
+    setFeeds(feeds.filter((feed) => feed.objectID !== objectID));
   };
 
   if (error) {
@@ -44,7 +49,7 @@ const newsFeed = (props) => {
           <Feeds
             key={feed.objectID}
             NewsFeed={feed}
-            upVote={upvoteHandler.bind(this, feed.objectID)}
+            upVote={upvoteHandler}
             hideFeed={hideHandler}
           ></Feeds>
         ))}

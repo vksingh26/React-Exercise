@@ -5,7 +5,6 @@ import "../../NewsFeed/NewsFeed.css";
 const feeds = (props) => {
   return (
       <li>
-        
         <label>{props.NewsFeed.num_comments}</label>
         <label>{props.NewsFeed.points}</label>
         <label className="cursor-pointer" onClick={props.upVote}>

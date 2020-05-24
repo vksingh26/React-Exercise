@@ -23,8 +23,9 @@ const newsFeed = (props) => {
       );
   }, []);
 
-  const upvoteHandler = () => {
+  const upvoteHandler = (id, e) => {
     
+    console.log('Not clear what to to so just added the value from api!!!')
   };
 
   const hideHandler = (obj) => {
@@ -41,9 +42,9 @@ const newsFeed = (props) => {
       <ul className="FeedUl">
         {feeds.map((feed, index) => (
           <Feeds
-            key={index}
+            key={feed.objectID}
             NewsFeed={feed}
-            upVote={upvoteHandler}
+            upVote={upvoteHandler.bind(this, feed.objectID)}
             hideFeed={hideHandler}
           ></Feeds>
         ))}

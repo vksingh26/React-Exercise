@@ -6,9 +6,9 @@ import "./NavigationItems.css";
 const navigationItems = (props) => (
   <ul className="NavigationItems">
     <NavigationItem link="/" exact>Comments</NavigationItem>
-    <NavigationItem link="/past">Vote Count</NavigationItem>
-    <NavigationItem link="/comments">Up Vote</NavigationItem>
-    <NavigationItem link="/ask">New Details</NavigationItem>
+    <NavigationItem link="/vote-count">Vote Count</NavigationItem>
+    <NavigationItem link="/upvote">Up Vote</NavigationItem>
+    <NavigationItem link="/details">News Details</NavigationItem>
   </ul>
 )
 

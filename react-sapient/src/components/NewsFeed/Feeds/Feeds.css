@@ -1,0 +1,32 @@
+.FeedUl {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.FeedUl li {
+    padding: 10px 0;
+    display: flex;
+}
+
+.FeedUl li:nth-child(even) {
+    background: lightgray;
+}
+
+.FeedUl li>label {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    min-width: 110px;
+}
+
+.FeedUl .upvote {
+    width: 0;
+    position: absolute;
+    height: 0;
+    top: 0px;
+    border-style: solid;
+    border-width: 0 10px 20px 10px;
+    border-color: transparent transparent gray transparent;
+    left: 17px;
+}

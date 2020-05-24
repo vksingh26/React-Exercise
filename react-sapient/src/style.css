@@ -5,6 +5,8 @@ html, body{
 }
 .container {
     width: 85%;
-    margin: 26px auto 0 auto;
+    margin: 0 auto;
     background-color: #f6f6ef;
+    padding-top: 60px;
+    font-size: 20px;
 }

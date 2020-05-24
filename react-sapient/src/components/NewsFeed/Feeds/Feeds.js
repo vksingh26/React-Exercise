@@ -1,18 +1,26 @@
 import React from "react";
 
-import './Feeds.css';
+import "./Feeds.css";
+import "../../NewsFeed/NewsFeed.css";
 const feeds = (props) => {
   return (
-    <ul className="FeedUl">
       <li>
-        <label>{props.comment}</label>
-        <label>{props.voteCount}</label>
-        <label onClick={props.upvote}>
-            <span className="upvote" ></span>
+        
+        <label>{props.NewsFeed.num_comments}</label>
+        <label>{props.NewsFeed.points}</label>
+        <label className="cursor-pointer" onClick={props.upVote}>
+          <span className="upvote"></span>
         </label>
-        <label>{props.details}</label>
+        <label className="FeedComments">
+          <span className="title BOLD">{props.NewsFeed.title} </span>
+          <span className="url BOLD"> ({props.NewsFeed.url}) by</span>
+          <span className="author BOLD"> {props.NewsFeed.author} </span>
+        </label>
+        <label className="cursor-pointer" onClick={() => {props.hideFeed(props.NewsFeed)}}>
+          [ hide ]
+        </label>
       </li>
-    </ul>
+    
   );
 };
 

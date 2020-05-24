@@ -2,6 +2,7 @@ html, body{
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    font-family: Sans-Serif;
 }
 .container {
     width: 85%;
@@ -9,4 +10,17 @@ html, body{
     background-color: #f6f6ef;
     padding-top: 60px;
     font-size: 20px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+.MARGIN_LEFT {
+    margin-left: 10px;
+}
+.MARGIN_RIGHT {
+    margin-right: 10px;
+}
+.BOLD{
+    font-weight: bold;
 }

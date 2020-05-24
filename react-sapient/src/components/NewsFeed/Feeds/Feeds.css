@@ -13,7 +13,7 @@
     background: lightgray;
 }
 
-.FeedUl li>label {
+label {
     display: inline-block;
     text-align: center;
     position: relative;
@@ -27,6 +27,20 @@
     top: 0px;
     border-style: solid;
     border-width: 0 10px 20px 10px;
-    border-color: transparent transparent gray transparent;
+    border-color: transparent transparent #999999 transparent;
     left: 17px;
+}
+
+.FeedComments {
+    text-align: left;
+}
+.FeedComments .title{
+    font-size: 24px;
+}
+
+.FeedComments .author{
+    font-size: 20px;
+}
+.FeedComments .url {
+    color: #999999;
 }

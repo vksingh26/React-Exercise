@@ -42,11 +42,11 @@ const newsFeed = (props) => {
     setFeeds(feeds.filter((feed) => feed.objectID !== objectID));
   };
 
-  function prevFeedHandler() {
+  const prevFeedHandler = () => {
     setCurrentPage((currentPage) => currentPage - 1);
   }
 
-  function nextFeedHandler() {
+  const nextFeedHandler = () => {
     setCurrentPage((currentPage) => currentPage + 1);
   }
   

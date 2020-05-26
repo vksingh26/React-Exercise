@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         <Layout>
           <Switch>
-            <Route path="/commets"></Route>
+            <Route path="/comments"></Route>
             <Route path="/" exact component={NewsFeed}></Route>
           </Switch>
         </Layout>

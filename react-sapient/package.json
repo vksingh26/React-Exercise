@@ -5,23 +5,27 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "start:ssr": "node server/index.js"
   },
   "author": "Vikash Kumar Singh",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-react": "^7.9.4",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^3.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "ignore-styles": "^5.0.1",
     "react-router-dom": "^5.2.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/register": "^7.9.0"
   },
   "dependencies": {
     "@babel/core": "^7.9.6",

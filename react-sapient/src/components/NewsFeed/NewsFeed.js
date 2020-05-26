@@ -4,6 +4,7 @@ import Feeds from "../../components/NewsFeed/Feeds/Feeds";
 import "../NewsFeed/Feeds/Feeds.css";
 import getFeeds from "../../getFeeds";
 import Pagination from "../Pagination/Pagination";
+import FeedGraph from '../Graph/Graph';
 
 const newsFeed = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -66,6 +67,7 @@ const newsFeed = (props) => {
           ))}
         </ul>
         <Pagination currentPage={currentPage} prevFeed={prevFeedHandler} nextFeed={nextFeedHandler}/>
+        <FeedGraph feeds={feeds}/>
       </div>
     );
   }

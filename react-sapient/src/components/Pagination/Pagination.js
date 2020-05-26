@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { Component } from "react";
 
-import './Pagination.css';
+import "./Pagination.css";
 
-const pagination = (props) => {
-    const prevFeedHandler = () => {
-        console.log('Need to handle!!!');
-    }
-
-    const nextFeedHandler = () => {
-        console.log('Need to handle!!!');
-    }
+class Pagination extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
     return (
-        <div className="Pagination">
-            <span className="cursor-pointer MARGIN_LEFT MARGIN_RIGHT" onClick={prevFeedHandler}>Previout</span>
-            <span>|</span>
-            <span className="cursor-pointer MARGIN_LEFT MARGIN_RIGHT" onClick={nextFeedHandler}>Next</span>
-        </div>
-    )
+      <div className="Pagination">
+        <a className={this.props.currentPage <= 0 ? 'MARGIN_LEFT MARGIN_RIGHT isDisabled': 'cursor-pointer MARGIN_LEFT MARGIN_RIGHT'} onClick={this.props.prevFeed}>
+          Previous
+        </a>
+        <span>|</span>
+        <a className={this.props.currentPage >= 10 ? 'MARGIN_LEFT MARGIN_RIGHT isDisabled': 'cursor-pointer MARGIN_LEFT MARGIN_RIGHT'} onClick={this.props.nextFeed}>Next</a>
+      </div>
+    );
+  }
 }
 
-export default pagination;
+export default Pagination;

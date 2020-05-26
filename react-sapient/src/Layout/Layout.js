@@ -9,7 +9,6 @@ const layout = (props) => (
   <Aux>
     <Toolbar/>
     <main>{props.children}</main>
-    <Pagination/>
   </Aux>
 )
 export default layout;

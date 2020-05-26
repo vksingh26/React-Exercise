@@ -6,8 +6,6 @@ import getFeeds from "../../getFeeds";
 import Pagination from "../Pagination/Pagination";
 
 const newsFeed = (props) => {
-  //created a state to manage vote count
-  const [vote, setVote] = useState({ count: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
   const [feeds, setFeeds] = useState([]);
   const [error, setError] = useState(null);

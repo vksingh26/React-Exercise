@@ -1,4 +1,4 @@
-# React-Exercise
+# React-Exercise: Added the screenshot too (Project with Lighthouse)
 # Created the app as per the execise request.
 # First i thought through the project folder structure.
 # First created the app using create-react-app commad

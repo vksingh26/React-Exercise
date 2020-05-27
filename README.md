@@ -10,6 +10,7 @@
 # Then added the upvote functionality to increment the vote by one on every click
 # Added server side rendering code but don't know how to deploy as i have never worked on deployment of SSR app.
 # Committed the code on my github account. 
+# NOTE: I have updated the code for SSR in this project, same project the only difference is i have written the complete SSR logic here: https://github.com/vksingh26/ReactExercise
 # Firebase Deployment steps:
 # run npm build which will give a build folder 
 1 npm install -g firebase-tools(we can use any like aws, docker, github etc for deployment) i have used firebase here

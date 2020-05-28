@@ -13,16 +13,21 @@ const newsFeed = (props) => {
   const [currentPage,setCurrentPage] = useState(0);
 
   useEffect(() => {
-    if(currentPage >= 0 && currentPage <= 10){
-      getFeeds(currentPage).then(
-        (result) => {
-          setIsLoaded(true);
-          setFeeds(result.hits);
-        },
-        (error) => {
-          setError(error);
-        }
-      );
+    if (currentPage >= 0 && currentPage <= 10) {
+      if (JSON.parse(sessionStorage.getItem("feeds"))) {
+        setIsLoaded(true);
+        setFeeds(JSON.parse(sessionStorage.getItem("feeds")));
+      } else {
+        getFeeds(currentPage).then(
+          (result) => {
+            setIsLoaded(true);
+            setFeeds(result.hits);
+          },
+          (error) => {
+            setError(error);
+          }
+        );
+      }
     }
   }, [currentPage]);
 
@@ -33,20 +38,35 @@ const newsFeed = (props) => {
     const feed = Object.assign({}, feeds[index]);
     feed.points = feed.points + 1;
     feeds[index] = feed;
-    setFeeds([...feeds]);
+    sessionStorage.clear();
+    sessionStorage.setItem("feeds", JSON.stringify(feeds));
+    setFeeds(JSON.parse(sessionStorage.getItem("feeds")));
   };
 
   const hideHandler = (obj) => {
     let objectID = obj.objectID;
-    setFeeds(feeds.filter((feed) => feed.objectID !== objectID));
+    let newFeeds = feeds.filter((feed) => feed.objectID !== objectID);
+    sessionStorage.clear();
+    sessionStorage.setItem("feeds", JSON.stringify(newFeeds));
+    setFeeds(JSON.parse(sessionStorage.getItem("feeds")));
   };
 
   const prevFeedHandler = () => {
-    setCurrentPage((currentPage) => currentPage - 1);
+    if (JSON.parse(sessionStorage.getItem("feeds"))) {
+      sessionStorage.clear();
+      setCurrentPage((currentPage) => currentPage - 1);
+    } else {
+      setCurrentPage((currentPage) => currentPage - 1);
+    }
   }
 
   const nextFeedHandler = () => {
-    setCurrentPage((currentPage) => currentPage + 1);
+    if (JSON.parse(sessionStorage.getItem("feeds"))) {
+      sessionStorage.clear();
+      setCurrentPage((currentPage) => currentPage + 1);
+    } else {
+      setCurrentPage((currentPage) => currentPage + 1);
+    }
   }
   
   if (error) {
